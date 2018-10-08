@@ -19,13 +19,13 @@ def gather_data():
         task_dict = {}
         task_vals = []
         t = requests.get(
-            'https://jsonplaceholder.typicode.com/users/' + str(user.get('id')) +
+            'https://jsonplaceholder.typicode.com/users/' + str(user['id']) +
             '/todos')
         for i in t.json():
             std = OrderedDict()
-            std['username'] = user.get('username')
-            std['task'] = i.get('title')
-            std['completed'] = i.get('completed')
+            std['username'] = user['username']
+            std['task'] = i['title']
+            std['completed'] = i['completed']
             task_vals.append(std)
         user_task_dict[user['id']] = task_vals
 
